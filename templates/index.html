@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe AI · Minimax vs Alpha-Beta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <h1>Tic-Tac-Toe <span class="accent">AI</span></h1>
+            <p class="tagline">Play against an unbeatable computer powered by
+                <strong>Minimax</strong> and <strong>Alpha-Beta Pruning</strong>.</p>
+        </header>
+
+        <main class="layout">
+            <section class="game-panel">
+                <div class="controls">
+                    <label class="control">
+                        <span>Algorithm</span>
+                        <select id="algorithm">
+                            <option value="alphabeta" selected>Alpha-Beta Pruning</option>
+                            <option value="minimax">Minimax</option>
+                        </select>
+                    </label>
+
+                    <label class="control">
+                        <span>You play</span>
+                        <select id="human-player">
+                            <option value="X" selected>X (first)</option>
+                            <option value="O">O (second)</option>
+                        </select>
+                    </label>
+
+                    <button id="reset" class="btn-primary" type="button">New Game</button>
+                </div>
+
+                <div id="status" class="status">Your turn — place an X.</div>
+
+                <div id="board" class="board" role="grid" aria-label="Tic Tac Toe board">
+                    <button class="cell" data-index="0" aria-label="Cell 1"></button>
+                    <button class="cell" data-index="1" aria-label="Cell 2"></button>
+                    <button class="cell" data-index="2" aria-label="Cell 3"></button>
+                    <button class="cell" data-index="3" aria-label="Cell 4"></button>
+                    <button class="cell" data-index="4" aria-label="Cell 5"></button>
+                    <button class="cell" data-index="5" aria-label="Cell 6"></button>
+                    <button class="cell" data-index="6" aria-label="Cell 7"></button>
+                    <button class="cell" data-index="7" aria-label="Cell 8"></button>
+                    <button class="cell" data-index="8" aria-label="Cell 9"></button>
+                </div>
+
+                <div class="score" id="score">
+                    <div class="score-cell"><span class="label">You</span><span id="score-human">0</span></div>
+                    <div class="score-cell"><span class="label">AI</span><span id="score-ai">0</span></div>
+                    <div class="score-cell"><span class="label">Draw</span><span id="score-draw">0</span></div>
+                </div>
+            </section>
+
+            <aside class="stats-panel">
+                <h2>Algorithm Comparison</h2>
+                <p class="muted">Recomputed for every AI move on the current board state.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card minimax">
+                        <h3>Minimax</h3>
+                        <div class="stat-row"><span>Nodes explored</span><strong id="mm-nodes">—</strong></div>
+                        <div class="stat-row"><span>Execution time</span><strong id="mm-time">—</strong></div>
+                        <div class="stat-row"><span>Chosen move</span><strong id="mm-move">—</strong></div>
+                    </div>
+
+                    <div class="stat-card alphabeta">
+                        <h3>Alpha-Beta</h3>
+                        <div class="stat-row"><span>Nodes explored</span><strong id="ab-nodes">—</strong></div>
+                        <div class="stat-row"><span>Execution time</span><strong id="ab-time">—</strong></div>
+                        <div class="stat-row"><span>Chosen move</span><strong id="ab-move">—</strong></div>
+                    </div>
+                </div>
+
+                <div class="verdict">
+                    <div class="verdict-row"><span>Faster</span><strong id="faster">—</strong></div>
+                    <div class="verdict-row"><span>Speed-up</span><strong id="speedup">—</strong></div>
+                    <div class="verdict-row"><span>Nodes saved</span><strong id="nodes-saved">—</strong></div>
+                </div>
+
+                <h3 class="history-title">History (this game)</h3>
+                <div class="history">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Minimax<br/><span class="muted">nodes / ms</span></th>
+                                <th>Alpha-Beta<br/><span class="muted">nodes / ms</span></th>
+                                <th>Saved</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                            <tr class="empty"><td colspan="4">No AI moves yet.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="footer">
+            <p>Built with Python, Flask &amp; vanilla JS.
+               Source on <a href="#" id="repo-link">GitHub</a>.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

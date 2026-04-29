@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe AI Documentation</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tic-Tac-Toe AI Documentation</h1>
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#usage">Usage</a></li>
+                <li><a href="#api">API</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>This project is a Tic-Tac-Toe game powered by AI, featuring two algorithms: Minimax and Alpha-Beta pruning. Players can compete against the AI or each other.</p>
+        </section>
+        <section id="installation">
+            <h2>Installation</h2>
+            <p>To install the project, clone the repository and install the required dependencies:</p>
+            <pre><code>git clone https://github.com/yourusername/tic-tac-toe-ai.git
+cd tic-tac-toe-ai
+pip install -r requirements.txt</code></pre>
+        </section>
+        <section id="usage">
+            <h2>Usage</h2>
+            <p>Run the application using the following command:</p>
+            <pre><code>python app.py</code></pre>
+            <p>Then open <a href="http://127.0.0.1:5000">http://127.0.0.1:5000</a> in your browser to play the game.</p>
+        </section>
+        <section id="api">
+            <h2>API</h2>
+            <p>The application exposes the following API endpoints:</p>
+            <ul>
+                <li><strong>GET /</strong> - Serves the game UI</li>
+                <li><strong>POST /api/move</strong> - Takes the current board and algorithm, returns the AI's chosen move and stats</li>
+                <li><strong>POST /api/reset</strong> - Returns a fresh board</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Tic-Tac-Toe AI Project. All rights reserved.</p>
+    </footer>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
