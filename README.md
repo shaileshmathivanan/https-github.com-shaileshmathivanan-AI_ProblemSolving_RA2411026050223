@@ -8,8 +8,6 @@
 ![Status](https://img.shields.io/badge/Project-Complete-brightgreen)
 
 🚀 **Live Demo:** https://tic-tac-toe-ai-sdvc.onrender.com
-💻 **GitHub Repo:** https://github.com/shaileshmathivanan/https-github.com-shaileshmathivanan-AI_ProblemSolving_RA2411026050223
-
 ---
 
 ## 📌 AI Lab Assignment
